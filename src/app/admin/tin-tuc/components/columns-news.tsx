@@ -1,0 +1,154 @@
+import { NewsFeedType } from "@/schemas";
+import { ColumnDef } from "@tanstack/react-table";
+import { ButtonWithTooltip } from "@/app/admin/_components/ui/button-with-tooltip";
+import Image from "next/image";
+import { SquarePen, Trash, ArrowUpDown } from "lucide-react";
+
+export const getColumns = ({
+  onEdit,
+  onDelete,
+}: {
+  onEdit: (news: NewsFeedType) => void;
+  onDelete: (news: NewsFeedType) => void;
+}): ColumnDef<NewsFeedType>[] => {
+  return [
+    {
+      id: "ID",
+      accessorKey: "id",
+      header: "ID",
+      cell: ({ row }) => {
+        return (
+          <div className="flex items-center">
+            <span className="whitespace-nowrap font-sm text-gray-900">
+              {row.original.id}
+            </span>
+          </div>
+        );
+      },
+    },
+    {
+      id: "Tiêu đề",
+      accessorKey: "title",
+      header: ({ column }) => {
+        return (
+          <button
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          >
+            <span>Tiêu đề</span>
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          </button>
+        );
+      },
+      cell: ({ row }) => (
+        <div className="flex items-center">
+          <span className="whitespace-nowrap font-medium text-gray-900">
+            {row.original.title}
+          </span>
+        </div>
+      ),
+    },
+    {
+      id: "Ảnh đại diện",
+      accessorKey: "thumbnail",
+      header: "Ảnh đại diện",
+      cell: ({ row }) => (
+        <div className="flex items-center">
+          <Image
+            src={row.original.thumbnail}
+            alt={row.original.title}
+            className="object-cover rounded-md"
+            width={100}
+            height={100}
+          />
+        </div>
+      ),
+    },
+    {
+      id: "Ngày thêm",
+      accessorKey: "created_at",
+      header: ({ column }) => {
+        return (
+          <button
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+            className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          >
+            <span>Ngày thêm</span>
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          </button>
+        );
+      },
+      cell: ({ row }) => {
+        const date = row.original.created_at
+          ? new Date(row.original.created_at)
+          : null;
+        return (
+          <div className="flex flex-col">
+            <span className="text-gray-500 text-sm">
+              {date
+                ? date.toLocaleTimeString("vi-VN", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                  })
+                : ""}
+            </span>
+            <span className="text-gray-700">
+              {date
+                ? date.toLocaleDateString("vi-VN", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                  })
+                : ""}
+            </span>
+          </div>
+        );
+      },
+      sortingFn: (rowA, rowB) => {
+        const a = rowA.original.created_at
+          ? new Date(rowA.original.created_at).getTime()
+          : 0;
+        const b = rowB.original.created_at
+          ? new Date(rowB.original.created_at).getTime()
+          : 0;
+        return a - b;
+      },
+    },
+    {
+      header: "Thao tác",
+      id: "actions",
+      enableHiding: false,
+      cell: ({ row }) => (
+        <div className="flex gap-2">
+          <ButtonWithTooltip
+            type="button"
+            tooltip="Chỉnh sửa"
+            variant="primary"
+            size="icon"
+            className="rounded-full"
+            onClick={(e) => {
+              e.stopPropagation();
+              onEdit(row.original);
+            }}
+          >
+            <SquarePen />
+          </ButtonWithTooltip>
+          <ButtonWithTooltip
+            type="button"
+            tooltip="Xóa"
+            variant="destructive"
+            size="icon"
+            className="rounded-full"
+            onClick={(e) => {
+              e.stopPropagation();
+              onDelete(row.original);
+            }}
+          >
+            <Trash />
+          </ButtonWithTooltip>
+        </div>
+      ),
+    },
+  ];
+};
