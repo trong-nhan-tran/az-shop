@@ -224,7 +224,7 @@ export const ColorImagesForm = ({
       title={
         editMode ? `Sửa màu sắc "${itemToEdit?.color_name}"` : "Thêm màu sắc"
       }
-      className="max-w-xl bg-white"
+      className="max-w-xl bg-card"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">

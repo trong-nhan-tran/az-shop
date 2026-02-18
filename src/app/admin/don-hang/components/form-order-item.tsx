@@ -171,7 +171,7 @@ export const OrderItemForm = ({
           ? `Sửa sản phẩm "${itemToEdit?.id}" trong đơn hàng #${orderId}`
           : `Thêm sản phẩm vào đơn hàng #${orderId}`
       }
-      className="max-w-2xl bg-white"
+      className="max-w-2xl bg-card"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">

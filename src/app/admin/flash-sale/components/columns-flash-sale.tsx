@@ -89,13 +89,13 @@ const CountdownTimer = ({
   const getTextColor = () => {
     switch (status) {
       case "waiting":
-        return "text-blue-600";
+        return "text-link";
       case "running":
         return "text-green-600";
       case "ended":
         return "text-red-600";
       default:
-        return "text-gray-500";
+        return "text-muted-foreground";
     }
   };
 
@@ -147,7 +147,7 @@ export const getColumns = ({
             e.stopPropagation();
             row.toggleExpanded();
           }}
-          className="rounded-full hover:bg-gray-200"
+          className="rounded-full hover:bg-accent"
         >
           {isExpanded ? <ChevronDown /> : <ChevronRight />}
         </Button>
@@ -159,7 +159,7 @@ export const getColumns = ({
     accessorKey: "id",
     header: "ID",
     cell: ({ row }) => (
-      <span className="whitespace-nowrap font-medium text-gray-900">
+      <span className="whitespace-nowrap font-medium text-foreground">
         {row.original.id}
       </span>
     ),
@@ -171,7 +171,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Tên flash sale</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -179,7 +179,7 @@ export const getColumns = ({
       );
     },
     cell: ({ row }) => (
-      <span className="whitespace-nowrap font-medium text-gray-900">
+      <span className="whitespace-nowrap font-medium text-foreground">
         {row.original.name}
       </span>
     ),
@@ -191,7 +191,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Thời gian bắt đầu</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -204,7 +204,7 @@ export const getColumns = ({
         : null;
       return (
         <div className="flex flex-col">
-          <span className="text-gray-500 text-sm">
+          <span className="text-muted-foreground text-sm">
             {date
               ? date.toLocaleTimeString("vi-VN", {
                   hour: "2-digit",
@@ -212,7 +212,7 @@ export const getColumns = ({
                 })
               : ""}
           </span>
-          <span className="text-gray-700">
+          <span className="text-foreground">
             {date
               ? date.toLocaleDateString("vi-VN", {
                   day: "2-digit",
@@ -232,7 +232,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Thời gian kết thúc</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -245,7 +245,7 @@ export const getColumns = ({
         : null;
       return (
         <div className="flex flex-col">
-          <span className="text-gray-500 text-sm">
+          <span className="text-muted-foreground text-sm">
             {date
               ? date.toLocaleTimeString("vi-VN", {
                   hour: "2-digit",
@@ -253,7 +253,7 @@ export const getColumns = ({
                 })
               : ""}
           </span>
-          <span className="text-gray-700">
+          <span className="text-foreground">
             {date
               ? date.toLocaleDateString("vi-VN", {
                   day: "2-digit",
@@ -313,7 +313,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Ngày tạo</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -326,7 +326,7 @@ export const getColumns = ({
         : null;
       return (
         <div className="flex flex-col">
-          <span className="text-gray-500 text-sm">
+          <span className="text-muted-foreground text-sm">
             {date
               ? date.toLocaleTimeString("vi-VN", {
                   hour: "2-digit",
@@ -335,7 +335,7 @@ export const getColumns = ({
                 })
               : ""}
           </span>
-          <span className="text-gray-700">
+          <span className="text-foreground">
             {date
               ? date.toLocaleDateString("vi-VN", {
                   day: "2-digit",

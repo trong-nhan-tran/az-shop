@@ -32,7 +32,7 @@ const ButtonWithTooltip = React.forwardRef<
       tooltipPosition = "top",
       ...props
     },
-    ref
+    ref,
   ) => {
     // Xác định class theo vị trí tooltip
     const tooltipClass = {
@@ -49,8 +49,8 @@ const ButtonWithTooltip = React.forwardRef<
           variant={variant === "primary" ? "default" : variant}
           size={size}
           className={cn(
-            variant === "primary" && "bg-blue-500 hover:bg-blue-600",
-            className
+            variant === "primary" && "bg-primary hover:bg-primary/90",
+            className,
           )}
           {...props}
         >
@@ -58,15 +58,15 @@ const ButtonWithTooltip = React.forwardRef<
         </Button>
         <div
           className={cn(
-            "absolute px-2 py-1 bg-gray-900 text-white text-xs rounded-md whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50",
-            tooltipClass
+            "absolute px-2 py-1 bg-popover text-popover-foreground text-xs rounded-md whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 border shadow-md",
+            tooltipClass,
           )}
         >
           {tooltip}
         </div>
       </div>
     );
-  }
+  },
 );
 
 ButtonWithTooltip.displayName = "ButtonWithTooltip";

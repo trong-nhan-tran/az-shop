@@ -94,7 +94,7 @@ const ProductColorTable = ({
       open={open}
       title="Danh Sách Màu Sắc"
       onClose={onClose}
-      className="max-w-6xl bg-white"
+      className="max-w-6xl bg-card"
     >
       <DataTable
         columns={columns}

@@ -94,7 +94,7 @@ export const ProductItemFilters = ({
       <Button
         variant="outline"
         onClick={onResetFilters}
-        className="text-gray-600 hover:text-gray-800"
+        className="text-muted-foreground hover:text-foreground"
       >
         <X size={14} />
         Bỏ lọc

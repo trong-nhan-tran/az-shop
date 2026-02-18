@@ -26,15 +26,15 @@ export default function SimpleModal({
         <div
           className={cn(
             "bg-background rounded-xl shadow-lg w-full max-w-md flex flex-col max-h-[90vh] border relative",
-            className
+            className,
           )}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex items-center justify-between py-2 px-4 rounded-t-xl border-b sticky top-0 bg-white z-10">
+          <div className="flex items-center justify-between py-2 px-4 rounded-t-xl border-b sticky top-0 bg-card z-10">
             <h2 className="text-lg font-semibold">{title}</h2>
 
             <div
-              className="px-1 bg-white border rounded-lg cursor-pointer hover:bg-gray-200 transition-colors duration-200"
+              className="px-1 bg-accent hover:bg-accent/80 border rounded-lg cursor-pointer transition-colors duration-200"
               onClick={onClose}
             >
               <i className="bi-x text-2xl"></i>

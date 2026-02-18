@@ -126,7 +126,7 @@ export function DataTable<TData, TValue>({
   const hasSearch = showSearch && onSearchChange && onSearch;
 
   return (
-    <div className={cn("bg-white px-4 py-2", className)}>
+    <div className={cn("bg-card px-4 py-2", className)}>
       {/* Header with tableName and controls */}
       {(tableName ||
         showColumnToggle ||
@@ -142,7 +142,7 @@ export function DataTable<TData, TValue>({
                 <SidebarTrigger className="size-4" size="icon" />
               )}
               {tableName && (
-                <h2 className="font-semibold text-gray-800 text-lg">
+                <h2 className="font-semibold text-foreground text-lg">
                   {tableName}
                 </h2>
               )}
@@ -155,13 +155,13 @@ export function DataTable<TData, TValue>({
                 <form onSubmit={onSearch} className="relative">
                   <Input
                     placeholder={searchPlaceholder}
-                    className="w-[240px] sm:w-[300px] h-9 rounded-md pr-10 bg-white border-gray-200 focus:ring-2 focus:ring-blue-100 focus:border-blue-400"
+                    className="w-60 sm:w-80 h-9 rounded-md pr-10"
                     value={searchValue}
                     onChange={(e) => onSearchChange(e.target.value)}
                   />
                   <button
                     type="submit"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors duration-200"
                   >
                     <i className="bi bi-search text-lg"></i>
                   </button>
@@ -205,7 +205,7 @@ export function DataTable<TData, TValue>({
               {onAdd && (
                 <Button
                   variant="outline"
-                  className="bg-green-500 hover:bg-green-600 text-white border-green-500 hover:border-green-600 transition-all duration-200 shadow-sm hover:shadow-md"
+                  className="bg-success hover:bg-success/90  border-success transition-all duration-200 shadow-sm hover:shadow-md"
                   title={addButtonName}
                   onClick={onAdd}
                 >
@@ -230,7 +230,7 @@ export function DataTable<TData, TValue>({
                         ? null
                         : flexRender(
                             header.column.columnDef.header,
-                            header.getContext()
+                            header.getContext(),
                           )}
                     </TableHead>
                   );
@@ -246,8 +246,10 @@ export function DataTable<TData, TValue>({
                   className="h-24 text-center"
                 >
                   <div className="flex items-center justify-center py-4">
-                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mr-2"></div>
-                    <span className="text-gray-600">Đang tải dữ liệu...</span>
+                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary mr-2"></div>
+                    <span className="text-muted-foreground">
+                      Đang tải dữ liệu...
+                    </span>
                   </div>
                 </TableCell>
               </TableRow>
@@ -256,13 +258,13 @@ export function DataTable<TData, TValue>({
                 <React.Fragment key={row.id}>
                   <TableRow
                     data-state={row.getIsSelected() && "selected"}
-                    className="hover:bg-blue-50"
+                    className="hover:bg-table-row-hover"
                   >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell key={cell.id}>
                         {flexRender(
                           cell.column.columnDef.cell,
-                          cell.getContext()
+                          cell.getContext(),
                         )}
                       </TableCell>
                     ))}
@@ -270,7 +272,7 @@ export function DataTable<TData, TValue>({
                   {row.getIsExpanded() && expandedContent && (
                     <TableRow>
                       <TableCell colSpan={columns.length} className="p-0">
-                        <div className="p-2 bg-gray-100 relative">
+                        <div className="p-2 bg-muted relative">
                           {expandedContent(row)}
                         </div>
                       </TableCell>

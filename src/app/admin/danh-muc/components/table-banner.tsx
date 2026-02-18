@@ -90,7 +90,7 @@ const BannerTable = ({ categoryId, open, onClose, categoryName }: Props) => {
       open={open}
       title="Danh Sách Banner"
       onClose={onClose}
-      className="max-w-7xl bg-white"
+      className="max-w-7xl bg-card"
     >
       <FormModal
         open={isOpenForm}

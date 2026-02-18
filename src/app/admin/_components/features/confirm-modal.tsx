@@ -34,7 +34,7 @@ const ConfirmModal = (props: Props) => {
             onClick={props.onConfirm}
             className={cn(
               props.confirmButtonClassName,
-              "bg-red-500 hover:bg-red-600"
+              "bg-destructive hover:bg-destructive/90 text-destructive-foreground",
             )}
           >
             Ok

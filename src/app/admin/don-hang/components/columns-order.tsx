@@ -83,7 +83,7 @@ export const getColumns = ({
               e.stopPropagation();
               row.toggleExpanded();
             }}
-            className="rounded-full hover:bg-gray-200"
+            className="rounded-full hover:bg-accent"
           >
             {isExpanded ? <ChevronDown /> : <ChevronRight />}
           </Button>
@@ -96,7 +96,7 @@ export const getColumns = ({
       accessorKey: "id",
       enableHiding: true,
       cell: ({ row }) => (
-        <span className="whitespace-nowrap font-medium text-gray-900">
+        <span className="whitespace-nowrap font-medium text-foreground">
           {row.original.id}
         </span>
       ),
@@ -107,7 +107,7 @@ export const getColumns = ({
         return (
           <button
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+            className="flex items-center hover:text-link-hover cursor-pointer w-fit"
           >
             <span>Khách hàng</span>
             <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -118,10 +118,10 @@ export const getColumns = ({
       enableHiding: true,
       cell: ({ row }) => (
         <div className="flex flex-col">
-          <span className="font-medium text-gray-900">
+          <span className="font-medium text-foreground">
             {row.original.customer_name}
           </span>
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-muted-foreground">
             {row.original.customer_phone}
           </span>
         </div>
@@ -134,10 +134,10 @@ export const getColumns = ({
       enableHiding: true,
       cell: ({ row }) => (
         <div className="flex flex-col max-w-[200px]">
-          <span className="text-gray-700 line-clamp-2">
+          <span className="text-foreground line-clamp-2">
             {row.original.street}
           </span>
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-muted-foreground">
             {row.original.ward ? getWardName(row.original.ward) : "Không có"},{" "}
             {row.original.province
               ? getProvinceName(row.original.province)
@@ -152,7 +152,7 @@ export const getColumns = ({
         return (
           <button
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+            className="flex items-center hover:text-link-hover cursor-pointer w-fit"
           >
             <span>Số sản phẩm</span>
             <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -169,7 +169,7 @@ export const getColumns = ({
           ) || 0;
 
         return (
-          <span className="whitespace-nowrap font-medium text-blue-600">
+          <span className="whitespace-nowrap font-medium text-link">
             {total} sản phẩm
           </span>
         );
@@ -194,7 +194,7 @@ export const getColumns = ({
         return (
           <button
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+            className="flex items-center hover:text-link-hover cursor-pointer w-fit"
           >
             <span>Tổng tiền</span>
             <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -248,7 +248,7 @@ export const getColumns = ({
         return (
           <button
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+            className="flex items-center hover:text-link-hover cursor-pointer w-fit"
           >
             <span>Ngày đặt hàng</span>
             <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -261,7 +261,7 @@ export const getColumns = ({
           : null;
         return (
           <div className="flex flex-col">
-            <span className="text-gray-500 text-sm">
+            <span className="text-muted-foreground text-sm">
               {date
                 ? date.toLocaleTimeString("vi-VN", {
                     hour: "2-digit",
@@ -270,7 +270,7 @@ export const getColumns = ({
                   })
                 : ""}
             </span>
-            <span className="text-gray-700">
+            <span className="text-foreground">
               {date
                 ? date.toLocaleDateString("vi-VN", {
                     day: "2-digit",

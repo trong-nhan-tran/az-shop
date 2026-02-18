@@ -97,7 +97,7 @@ export default function FormProfile({
       open={open}
       onClose={() => setOpen(false)}
       title={`Sửa tài khoản "${profile?.name || profile?.email || ""}"`}
-      className="max-w-3xl bg-white"
+      className="max-w-3xl bg-card"
     >
       <Form {...form}>
         <form

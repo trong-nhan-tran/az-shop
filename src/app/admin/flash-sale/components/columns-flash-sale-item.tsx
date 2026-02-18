@@ -16,7 +16,7 @@ export const getColumns = ({
     accessorKey: "id",
     header: "ID",
     cell: ({ row }) => (
-      <span className="whitespace-nowrap font-medium text-gray-900">
+      <span className="whitespace-nowrap font-medium text-foreground">
         {row.original.id}
       </span>
     ),
@@ -36,10 +36,10 @@ export const getColumns = ({
             height={50}
           />
           <span className="flex flex-col gap-1 ">
-            <span className="whitespace-nowrap font-medium text-gray-900">
+            <span className="whitespace-nowrap font-medium text-foreground">
               {productItem?.product_variants?.name}
             </span>
-            <span className="text-gray-700">
+            <span className="text-foreground">
               {productItem?.product_colors?.color_name}
             </span>
           </span>
@@ -55,7 +55,7 @@ export const getColumns = ({
       const originalPrice =
         row.original.product_items?.product_variants?.listed_price || 0;
       return (
-        <span className="whitespace-nowrap font-medium text-gray-700">
+        <span className="whitespace-nowrap font-medium text-foreground">
           {new Intl.NumberFormat("vi-VN", {
             style: "currency",
             currency: "VND",
@@ -71,7 +71,7 @@ export const getColumns = ({
     cell: ({ row }) => {
       const originalPrice = row.original.product_items?.price || 0;
       return (
-        <span className="whitespace-nowrap font-medium text-gray-700">
+        <span className="whitespace-nowrap font-medium text-foreground">
           {new Intl.NumberFormat("vi-VN", {
             style: "currency",
             currency: "VND",
@@ -88,7 +88,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Giá khuyến mãi</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -124,7 +124,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Số lượng</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -132,7 +132,7 @@ export const getColumns = ({
       );
     },
     cell: ({ row }) => (
-      <span className="whitespace-nowrap font-medium text-gray-900">
+      <span className="whitespace-nowrap font-medium text-foreground">
         {row.original.quantity}
       </span>
     ),
@@ -142,7 +142,7 @@ export const getColumns = ({
     accessorKey: "sold_quantity",
     header: "Đã bán",
     cell: ({ row }) => (
-      <span className="whitespace-nowrap font-medium text-gray-900">
+      <span className="whitespace-nowrap font-medium text-foreground">
         {row.original.sold_quantity || 0}
       </span>
     ),

@@ -16,7 +16,7 @@ export const getColumns = ({
       cell: ({ row }) => {
         return (
           <div className="flex items-center">
-            <span className="whitespace-nowrap font-sm text-gray-900">
+            <span className="whitespace-nowrap font-sm text-foreground">
               {row.original.id.substring(0, 8)}...
             </span>
           </div>
@@ -30,7 +30,7 @@ export const getColumns = ({
         return (
           <button
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+            className="flex items-center hover:text-link-hover cursor-pointer w-fit"
           >
             <span>Tên</span>
             <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -50,7 +50,7 @@ export const getColumns = ({
             />
           )}
           <div className="flex flex-col">
-            <span className="whitespace-nowrap font-medium text-gray-900">
+            <span className="whitespace-nowrap font-medium text-foreground">
               {row.original.name}
             </span>
           </div>
@@ -64,7 +64,7 @@ export const getColumns = ({
         return (
           <button
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+            className="flex items-center hover:text-link-hover cursor-pointer w-fit"
           >
             <span>Email</span>
             <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -73,7 +73,7 @@ export const getColumns = ({
       },
       cell: ({ row }) => (
         <div className="flex items-center">
-          <span className="text-gray-700 whitespace-nowrap text-sm">
+          <span className="text-foreground whitespace-nowrap text-sm">
             {row.original.email || "N/A"}
           </span>
         </div>
@@ -85,7 +85,7 @@ export const getColumns = ({
       header: "Số điện thoại",
       cell: ({ row }) => (
         <div className="flex items-center">
-          <span className="text-gray-700 whitespace-nowrap text-sm">
+          <span className="text-foreground whitespace-nowrap text-sm">
             {row.original.phone || "N/A"}
           </span>
         </div>
@@ -97,7 +97,7 @@ export const getColumns = ({
       header: "Địa chỉ",
       cell: ({ row }) => (
         <div className="flex items-center">
-          <span className="text-gray-700 text-sm line-clamp-2">
+          <span className="text-foreground text-sm line-clamp-2">
             {row.original.address || "N/A"}
           </span>
         </div>
@@ -110,7 +110,7 @@ export const getColumns = ({
         return (
           <button
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+            className="flex items-center hover:text-link-hover cursor-pointer w-fit"
           >
             <span>Ngày tạo</span>
             <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -123,7 +123,7 @@ export const getColumns = ({
           : null;
         return (
           <div className="flex flex-col">
-            <span className="text-gray-500 text-sm">
+            <span className="text-muted-foreground text-sm">
               {date
                 ? date.toLocaleDateString("vi-VN", {
                     day: "2-digit",
@@ -132,7 +132,7 @@ export const getColumns = ({
                   })
                 : "N/A"}
             </span>
-            <span className="text-gray-700">
+            <span className="text-foreground">
               {date
                 ? date.toLocaleTimeString("vi-VN", {
                     hour: "2-digit",

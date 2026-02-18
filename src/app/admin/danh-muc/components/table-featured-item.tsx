@@ -106,7 +106,7 @@ const FeaturedItemTable = ({
       open={open}
       title="Danh Sách Sản Phẩm Nổi Bật"
       onClose={onClose}
-      className="max-w-7xl bg-white"
+      className="max-w-7xl bg-card"
     >
       <FeaturedItemFormProvider />
       <DataTable

@@ -121,7 +121,7 @@ export default function CKEditorWrapper({
 
     // Tìm các ảnh đã bị xóa
     const removedUrls = previousImageUrls.filter(
-      (url) => !newImageUrls.includes(url)
+      (url) => !newImageUrls.includes(url),
     );
 
     // Xóa các ảnh đã bị remove khỏi editor
@@ -141,7 +141,7 @@ export default function CKEditorWrapper({
   };
 
   return (
-    <div className="rich-text-editor pointer-event:auto">
+    <div className="rich-text-editor pointer-event:auto text-black">
       <CKEditor
         editor={ClassicEditor}
         data={value}

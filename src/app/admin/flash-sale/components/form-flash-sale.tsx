@@ -161,7 +161,7 @@ export const FlashSaleForm = ({
       title={
         editMode ? `Sửa flash sale "${flashSale?.name}"` : "Thêm flash sale"
       }
-      className="max-w-2xl bg-white"
+      className="max-w-2xl bg-card"
     >
       <Form {...form}>
         <form
@@ -210,7 +210,7 @@ export const FlashSaleForm = ({
             </div>
 
             {/* Display timezone info */}
-            <div className="text-sm text-gray-600 bg-gray-50 p-2 rounded">
+            <div className="text-sm text-muted-foreground bg-muted p-2 rounded">
               <strong>Lưu ý:</strong> Thời gian sẽ được lưu theo múi giờ{" "}
               <span className="font-mono">
                 {Intl.DateTimeFormat().resolvedOptions().timeZone}

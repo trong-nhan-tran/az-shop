@@ -93,7 +93,10 @@ export function Pagination({
       <div className="flex justify-between items-center gap-3">
         {/* Info section */}
         <div className="flex items-center gap-3">
-          <Badge variant="outline" className=" items-center text-sm h-9 pl-1">
+          <Badge
+            variant="outline"
+            className="rounded-md items-center text-sm h-9 pl-1"
+          >
             <Badge variant="secondary" className="text-sm rounded-sm">
               {total === 0 ? 0 : (currentPage - 1) * pageSize + 1} <MoveRight />
               {Math.min(currentPage * pageSize, total)}
@@ -106,18 +109,18 @@ export function Pagination({
                 value={pageSize.toString()}
                 onValueChange={(value) => onPageSizeChange(Number(value))}
               >
-                <SelectTrigger className="border-gray-300 focus:ring-blue-500 focus:border-blue-500">
+                <SelectTrigger>
                   <SelectValue placeholder={`${pageSize}`}>
                     <Rows className="inline" />
                     {pageSize} Dòng
                   </SelectValue>
                 </SelectTrigger>
-                <SelectContent className="bg-white">
+                <SelectContent className="bg-popover">
                   {pageSizeOptions.map((size) => (
                     <SelectItem
                       key={size}
                       value={size.toString()}
-                      className="cursor-pointer hover:bg-gray-100"
+                      className="cursor-pointer hover:bg-accent"
                     >
                       <span className="font-medium">{size}</span>
                     </SelectItem>
@@ -128,16 +131,16 @@ export function Pagination({
           )}
         </div>
 
-        <div className="flex items-center rounded-md overflow-hidden border border-gray-300 h-9">
+        <div className="flex items-center rounded-md overflow-hidden border h-9">
           {/* Previous button */}
           <Button
             variant="ghost"
             onClick={() => onPageChange(currentPage - 1)}
             disabled={!canGoPrevious}
-            className={`h-full px-3 border-r rounded-none border-gray-200 ${
+            className={`h-full px-3 border-r rounded-none ${
               !canGoPrevious
-                ? "text-gray-300 cursor-not-allowed"
-                : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                ? "text-muted-foreground/40 cursor-not-allowed"
+                : "text-foreground hover:bg-accent hover:text-accent-foreground"
             }`}
             title="Trang trước"
           >
@@ -148,17 +151,17 @@ export function Pagination({
           {pageNumbers.map((page, index) => (
             <React.Fragment key={index}>
               {page === "..." ? (
-                <span className="h-full px-3 flex items-center justify-center text-gray-500 border-r border-gray-200">
+                <span className="h-full px-3 flex items-center justify-center text-muted-foreground border-r">
                   &hellip;
                 </span>
               ) : (
                 <Button
                   variant="ghost"
                   onClick={() => onPageChange(page as number)}
-                  className={`h-full min-w-[36px] rounded-none border-r border-gray-200 ${
+                  className={`h-full min-w-9 rounded-none border-r ${
                     currentPage === page
-                      ? "bg-blue-50 text-blue-600 font-medium hover:bg-blue-100"
-                      : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                      ? "bg-primary text-primary-foreground font-medium hover:bg-primary/90"
+                      : "text-foreground hover:bg-accent hover:text-accent-foreground"
                   }`}
                 >
                   {page}
@@ -174,8 +177,8 @@ export function Pagination({
             disabled={!canGoNext}
             className={`h-full px-3 rounded-none ${
               !canGoNext
-                ? "text-gray-300 cursor-not-allowed"
-                : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                ? "text-muted-foreground/40 cursor-not-allowed"
+                : "text-foreground hover:bg-accent hover:text-accent-foreground"
             }`}
             title="Trang tiếp"
           >

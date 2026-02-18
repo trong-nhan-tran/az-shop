@@ -15,8 +15,8 @@ const AddNewButton = (props: Props) => {
       type="button"
       onClick={props.onAddNew}
       className={cn(
-        "px-3 py-1.5 bg-green-500 hover:bg-green-600 text-white border-green-500 hover:border-green-600 transition-all duration-200 shadow-sm hover:shadow-md",
-        props.className
+        "px-3 py-1.5 bg-success hover:bg-success/90 text-success-foreground border-success transition-all duration-200 shadow-sm hover:shadow-md",
+        props.className,
       )}
     >
       <Plus />

@@ -139,7 +139,7 @@ export const CategoryForm = ({
       title={
         editMode ? `Sửa danh mục "${itemToEdit?.name || ""}"` : `Thêm danh mục`
       }
-      className="max-w-lg bg-white"
+      className="max-w-lg bg-card"
     >
       <Form {...form}>
         <form

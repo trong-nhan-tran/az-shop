@@ -96,17 +96,17 @@ const InputImageMultiple = (props: Props) => {
     <FormItem className={cn("gap-0", props.className)}>
       <FormLabel>{props.label}</FormLabel>
       <FormControl>
-        <div className="bg-gray-100 p-2 rounded-lg mt-1 w-full gap-2 flex flex-wrap justify-around">
+        <div className="bg-muted p-2 rounded-lg mt-1 w-full gap-2 flex flex-wrap justify-around">
           <Label
             htmlFor={`image-upload-multiple-${props.name}`}
             className={cn(
-              "flex flex-col w-[100px] h-[100px] items-center justify-center rounded-md cursor-pointer border bg-white",
-              props.size
+              "flex flex-col w-[100px] h-[100px] items-center justify-center rounded-md cursor-pointer border bg-card",
+              props.size,
             )}
           >
             <div className="flex flex-col items-center justify-center p-2 text-center">
-              <Plus className="h-6 w-6 mb-1 text-gray-500" />
-              <p className="text-xs text-gray-500">Thêm ảnh</p>
+              <Plus className="h-6 w-6 mb-1 text-muted-foreground" />
+              <p className="text-xs text-muted-foreground">Thêm ảnh</p>
             </div>
             <Input
               id={`image-upload-multiple-${props.name}`}
@@ -127,8 +127,8 @@ const InputImageMultiple = (props: Props) => {
               <div
                 key={field.id}
                 className={cn(
-                  "relative group overflow-hidden border rounded-md w-[100px] h-[100px] bg-white",
-                  props.size
+                  "relative group overflow-hidden border rounded-md w-[100px] h-[100px] bg-card",
+                  props.size,
                 )}
               >
                 <Image

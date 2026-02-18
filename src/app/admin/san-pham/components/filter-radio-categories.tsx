@@ -17,13 +17,13 @@ const CategoriesFilterItem: React.FC<CategoriesFilterItemProps> = ({
   const categories = useCategoryStore((state) => state.categories);
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 bg-white p-2 border-b w-full">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 bg-card p-2 border-b w-full">
       <div
         onClick={() => onCategoryChange(null)}
         className={`flex w-full rounded-md items-center gap-3 cursor-pointer pl-3 border transition-all duration-200 ${
           !selectedCategoryId
             ? "border-blue-500 bg-blue-50 shadow-md"
-            : "border-gray-200 bg-white hover:bg-gray-50 hover:border-blue-400"
+            : "border bg-card hover:bg-muted hover:border-primary"
         }`}
       >
         <Grid3X3 width={28} height={28} />
@@ -39,7 +39,7 @@ const CategoriesFilterItem: React.FC<CategoriesFilterItemProps> = ({
             className={`flex w-full pl-3 rounded-md items-center gap-3 cursor-pointer border transition-all duration-200 ${
               selectedCategoryId === category.id.toString()
                 ? "border-blue-500 bg-blue-50 shadow-md"
-                : "border-gray-200 bg-white hover:bg-gray-50 hover:border-blue-400"
+                : "border bg-card hover:bg-muted hover:border-primary"
             }`}
           >
             <div className="overflow-hidden  flex items-center justify-center">

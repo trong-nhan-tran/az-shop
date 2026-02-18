@@ -175,7 +175,7 @@ const BannerFormModal = ({
       open={open}
       onClose={() => setOpen(false)}
       title={editMode ? `Sửa banner "#${itemToEdit?.id}"` : "Thêm banner"}
-      className="max-w-3xl bg-white"
+      className="max-w-3xl bg-card"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">

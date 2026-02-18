@@ -152,7 +152,7 @@ export default function FormNews({
           ? `Sửa tin tức "${news?.title ? `${news.title}` : ""}"`
           : "Thêm tin tức"
       }
-      className="max-w-5xl bg-white"
+      className="max-w-5xl bg-card"
     >
       <Form {...form}>
         <form

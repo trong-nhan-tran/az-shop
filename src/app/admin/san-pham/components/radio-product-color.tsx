@@ -66,7 +66,7 @@ const RadioColor = ({
                           ? "border-blue-500 bg-blue-50 shadow-md"
                           : fieldState.error
                           ? "border-red-300 bg-red-50 hover:border-red-400"
-                          : "border-gray-200 bg-white hover:border-blue-300"
+                          : "border bg-card hover:border-primary"
                       }
                       ${
                         isDisabled
@@ -89,7 +89,7 @@ const RadioColor = ({
                       <div className="flex-1 text-left">
                         <span
                           className={`text-sm font-medium ${
-                            fieldState.error ? "text-red-600" : "text-gray-700"
+                            fieldState.error ? "text-red-600" : "text-foreground"
                           }`}
                         >
                           {color.color_name}

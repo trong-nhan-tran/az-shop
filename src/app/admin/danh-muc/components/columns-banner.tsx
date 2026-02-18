@@ -16,7 +16,7 @@ export const getColumns = ({
     header: "ID",
     accessorKey: "id",
     cell: ({ row }) => (
-      <span className="whitespace-nowrap font-medium text-gray-900">
+      <span className="whitespace-nowrap font-medium text-foreground">
         {row.original.id}
       </span>
     ),
@@ -63,7 +63,7 @@ export const getColumns = ({
     header: "Link chuyển hướng",
     accessorKey: "direct_link",
     cell: ({ row }) => (
-      <span className="text-gray-700">{row.original.direct_link}</span>
+      <span className="text-foreground">{row.original.direct_link}</span>
     ),
   },
   {
@@ -71,7 +71,7 @@ export const getColumns = ({
     header: "Thứ tự hiển thị",
     accessorKey: "order_number",
     cell: ({ row }) => (
-      <span className="text-gray-700">{row.original.order_number}</span>
+      <span className="text-foreground">{row.original.order_number}</span>
     ),
   },
 
@@ -82,7 +82,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Ngày thêm</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -95,7 +95,7 @@ export const getColumns = ({
         : null;
       return (
         <div className="flex flex-col">
-          <span className="text-gray-500 text-sm">
+          <span className="text-muted-foreground text-sm">
             {date
               ? date.toLocaleTimeString("vi-VN", {
                   hour: "2-digit",
@@ -104,7 +104,7 @@ export const getColumns = ({
                 })
               : ""}
           </span>
-          <span className="text-gray-700">
+          <span className="text-foreground">
             {date
               ? date.toLocaleDateString("vi-VN", {
                   day: "2-digit",

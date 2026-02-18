@@ -168,7 +168,7 @@ export const FeaturedItemForm = ({
       open={open}
       onClose={() => setOpen(false)}
       title={title}
-      className="max-w-lg bg-white"
+      className="max-w-lg bg-card"
     >
       <Form {...form}>
         <form id="featured-item-form" onSubmit={form.handleSubmit(onSubmit)}>

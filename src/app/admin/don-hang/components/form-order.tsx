@@ -206,7 +206,7 @@ const OrderForm = ({
           ? `Sửa đơn hàng ${order?.id ? `#${order.id}` : ""}`
           : "Thêm đơn hàng"
       }
-      className="max-w-4xl bg-white"
+      className="max-w-4xl bg-card"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">

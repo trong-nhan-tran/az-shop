@@ -141,7 +141,7 @@ export const FlashSaleItemForm = ({
       open={open}
       onClose={() => setOpen(false)}
       title={editMode ? "Sửa sản phẩm flash sale" : "Thêm sản phẩm flash sale"}
-      className="max-w-2xl bg-white"
+      className="max-w-2xl bg-card"
     >
       <Form {...form}>
         <form

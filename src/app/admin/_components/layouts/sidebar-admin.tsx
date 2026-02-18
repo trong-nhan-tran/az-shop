@@ -26,6 +26,7 @@ import { getProfileAdmin } from "@/apis";
 import Link from "next/link";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
+import { ThemeToggle } from "@/app/admin/_components/ui/theme-toggle";
 
 const adminNavData = {
   navMain: [
@@ -77,7 +78,7 @@ export function SidebarAdmin({
 
   return (
     <Sidebar
-      className=" bg-white" // 192px = w-48
+      className="bg-card" // 192px = w-48
       collapsible="icon"
       variant="floating"
       {...props}
@@ -85,23 +86,34 @@ export function SidebarAdmin({
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton
-              size="lg"
-              asChild
-              className="hover:bg-transparent hover:text-current hover:shadow-none"
-            >
-              <Link href="#">
-                <div className="flex aspect-square size-8 items-center justify-center  text-sidebar-foreground">
-                  <Image
-                    src="/images/logo3.png"
-                    alt="Logo"
-                    width={30}
-                    height={30}
-                  />
-                </div>
-                <div className="font-semibold text-lg">ADMIN PANEL</div>
-              </Link>
-            </SidebarMenuButton>
+            <div className="flex w-full items-center justify-between gap-2">
+              <SidebarMenuButton
+                size="lg"
+                asChild
+                className="hover:bg-transparent hover:text-current hover:shadow-none flex-1"
+              >
+                <Link href="#">
+                  <div className="flex aspect-square size-8 items-center justify-center  text-sidebar-foreground">
+                    <Image
+                      src="/images/logo2.png"
+                      alt="Logo"
+                      width={32}
+                      height={32}
+                      className="rounded-sm border"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-0">
+                    <span className="font-semibold text-sm">AZ Shop</span>
+                    <span className="text-xs text-muted-foreground">
+                      Trang quản trị
+                    </span>
+                  </div>
+                </Link>
+              </SidebarMenuButton>
+              <div className="group-data-[collapsible=icon]:hidden">
+                <ThemeToggle />
+              </div>
+            </div>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>

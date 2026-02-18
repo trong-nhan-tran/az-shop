@@ -146,7 +146,7 @@ export default function GeneralInfo({
           ? `Sửa sản phẩm "${product?.name ? `${product.name}` : ""}"`
           : "Thêm sản phẩm"
       }
-      className="max-w-3xl bg-white"
+      className="max-w-3xl bg-card"
     >
       <Form {...form}>
         <form

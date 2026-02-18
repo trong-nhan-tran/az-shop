@@ -27,7 +27,7 @@ const FormActions = ({
       <Button
         type="submit"
         disabled={loading}
-        className="relative bg-blue-500 hover:bg-blue-600 text-white transition-colors duration-200 shadow-sm"
+        className="relative bg-primary hover:bg-primary/90 text-primary-foreground transition-colors duration-200 shadow-sm"
       >
         {loading && (
           <span className="absolute inset-0 flex items-center justify-center">

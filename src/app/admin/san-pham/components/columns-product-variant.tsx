@@ -34,7 +34,7 @@ export const getColumns = ({
             e.stopPropagation();
             row.toggleExpanded();
           }}
-          className="rounded-full hover:bg-gray-200"
+          className="rounded-full hover:bg-accent"
         >
           {isExpanded ? <ChevronDown /> : <ChevronRight />}
         </Button>
@@ -46,7 +46,7 @@ export const getColumns = ({
     accessorKey: "id",
     header: "ID",
     cell: ({ row }) => (
-      <span className="whitespace-nowrap font-medium text-gray-900">
+      <span className="whitespace-nowrap font-medium text-foreground">
         {row.original.id}
       </span>
     ),
@@ -58,7 +58,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Tên phiên bản sản phẩm</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -78,10 +78,10 @@ export const getColumns = ({
           />
         )}
         <div className="flex flex-col">
-          <span className="whitespace-nowrap font-medium text-gray-900">
+          <span className="whitespace-nowrap font-medium text-foreground">
             {row.original.name}
           </span>
-          <span className="text-xs text-gray-500">{row.original.slug}</span>
+          <span className="text-xs text-muted-foreground">{row.original.slug}</span>
         </div>
       </div>
     ),
@@ -93,7 +93,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Phiên bản</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -102,7 +102,7 @@ export const getColumns = ({
     },
     cell: ({ row }) => (
       <div className="flex flex-col">
-        <span className="whitespace-nowrap font-medium text-gray-900">
+        <span className="whitespace-nowrap font-medium text-foreground">
           {row.original.variant || "Sản phẩm đơn"}
         </span>
       </div>
@@ -115,7 +115,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Giá niêm yết</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -125,7 +125,7 @@ export const getColumns = ({
     enableHiding: true,
     cell: ({ row }) => {
       return (
-        <span className="whitespace-nowrap font-semibold text-gray-700">
+        <span className="whitespace-nowrap font-semibold text-foreground">
           {new Intl.NumberFormat("vi-VN", {
             style: "currency",
             currency: "VND",
@@ -141,7 +141,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Giá bán từ</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -172,8 +172,8 @@ export const getColumns = ({
           variant={hasAvailableItems ? "default" : "destructive"}
           className={
             hasAvailableItems
-              ? "bg-green-100 text-green-800 border-green-200"
-              : "bg-red-100 text-red-800 border-red-200"
+              ? "bg-success/10 text-success border-success/20"
+              : "bg-destructive/10 text-destructive border-destructive/20"
           }
         >
           {hasAvailableItems ? "Còn hàng" : "Hết hàng"}
@@ -191,7 +191,7 @@ export const getColumns = ({
           0
         ) || 0;
       return (
-        <span className="whitespace-nowrap font-medium text-gray-900">
+        <span className="whitespace-nowrap font-medium text-foreground">
           {totalSold}
         </span>
       );
@@ -204,7 +204,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Ngày thêm</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -217,7 +217,7 @@ export const getColumns = ({
         : null;
       return (
         <div className="flex flex-col">
-          <span className="text-gray-500 text-sm">
+          <span className="text-muted-foreground text-sm">
             {date
               ? date.toLocaleTimeString("vi-VN", {
                   hour: "2-digit",
@@ -226,7 +226,7 @@ export const getColumns = ({
                 })
               : ""}
           </span>
-          <span className="text-gray-700">
+          <span className="text-foreground">
             {date
               ? date.toLocaleDateString("vi-VN", {
                   day: "2-digit",

@@ -171,7 +171,7 @@ export const ProductItemForm = ({
           ? `Sửa phân loại của "${productVariant?.name}"`
           : `Thêm phân loại cho "${productVariant?.name}"`
       }
-      className="max-w-xl bg-white"
+      className="max-w-xl bg-card"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
@@ -191,14 +191,14 @@ export const ProductItemForm = ({
               <FormItem>
                 <FormLabel>Trạng thái</FormLabel>
                 <FormControl>
-                  <div className="w-full p-3 border border-gray-200 rounded-md bg-gray-50">
+                  <div className="w-full p-3 border border rounded-md bg-muted">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <Switch
                           checked={field.value}
                           onCheckedChange={field.onChange}
                           disabled={isLoadingColors}
-                          className={`data-[state=checked]:bg-green-600 data-[state=unchecked]:bg-red-500 ${
+                          className={`data-[state=checked]:bg-success data-[state=unchecked]:bg-destructive ${
                             field.value
                               ? "data-[state=checked]:border-green-600"
                               : "data-[state=unchecked]:border-red-500"
@@ -235,7 +235,7 @@ export const ProductItemForm = ({
             </div>
 
             <div className="col-span-4">
-              <div className="bg-white border border-gray-200 rounded-md p-2 h-fit">
+              <div className="bg-card border border rounded-md p-2 h-fit">
                 <div className="flex items-center space-x-2">
                   <Switch
                     id="use-base-price"
@@ -246,7 +246,7 @@ export const ProductItemForm = ({
                   <div className="flex-1">
                     <Label
                       htmlFor="use-base-price"
-                      className="text-xs font-medium text-gray-700"
+                      className="text-xs font-medium text-foreground"
                     >
                       Lấy từ phiên bản
                     </Label>

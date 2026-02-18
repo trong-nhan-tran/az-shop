@@ -149,7 +149,7 @@ export const SubcategoryForm = ({
       open={open}
       onClose={() => setOpen(false)}
       title={title}
-      className="max-w-lg bg-white"
+      className="max-w-lg bg-card"
     >
       <Form {...form}>
         <form

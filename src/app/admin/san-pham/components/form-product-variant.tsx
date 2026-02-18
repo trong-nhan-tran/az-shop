@@ -165,7 +165,7 @@ export const ProductVariantForm = ({
       title={
         editMode ? `Sửa phiên bản "${productVariant?.name}"` : "Thêm phiên bản"
       }
-      className="max-w-2xl bg-white"
+      className="max-w-2xl bg-card"
     >
       <Form {...form}>
         <form

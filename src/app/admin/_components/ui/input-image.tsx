@@ -64,7 +64,7 @@ const InputImage = (props: Props) => {
         <FormItem className={cn("gap-0", props.className)}>
           <FormLabel className="mb-1">{props.label}</FormLabel>
           <FormControl>
-            <div className="flex flex-col gap-3 items-center bg-gray-100 rounded-lg">
+            <div className="flex flex-col gap-3 items-center bg-muted rounded-lg">
               {field.value ? (
                 <div
                   className={`relative ${containerSize} rounded-lg overflow-hidden group transition-all duration-200 hover:shadow-md`}
@@ -89,11 +89,11 @@ const InputImage = (props: Props) => {
               ) : (
                 <Label
                   htmlFor={`image-upload-${props.name}`}
-                  className={`flex flex-col items-center justify-center ${containerSize} cursor-pointer hover:bg-gray-100 transition-all duration-200`}
+                  className={`flex flex-col items-center justify-center ${containerSize} cursor-pointer hover:bg-muted/80 transition-all duration-200`}
                 >
                   <div className="flex flex-col items-center justify-center p-2 text-center">
-                    <UploadCloud className="h-10 w-10 mb-3 text-gray-400 transition-transform duration-200" />
-                    <p className="text-sm font-medium text-gray-600 mb-1">
+                    <UploadCloud className="h-10 w-10 mb-3 text-muted-foreground transition-transform duration-200" />
+                    <p className="text-sm font-medium text-muted-foreground mb-1">
                       Chọn ảnh
                     </p>
                   </div>

@@ -18,7 +18,7 @@ export const getColumns = ({
     header: "ID",
     enableHiding: true,
     cell: ({ row }) => (
-      <span className="whitespace-nowrap font-medium text-gray-900">
+      <span className="whitespace-nowrap font-medium text-foreground">
         {row.original.id}
       </span>
     ),
@@ -30,7 +30,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Màu sắc</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -50,7 +50,7 @@ export const getColumns = ({
             loading="lazy"
           />
         )}
-        <span className="whitespace-nowrap text-gray-900">
+        <span className="whitespace-nowrap text-foreground">
           {row.original.product_colors?.color_name || "N/A"}
         </span>
       </div>
@@ -63,7 +63,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Giá bán</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -89,7 +89,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Trạng thái</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -102,8 +102,8 @@ export const getColumns = ({
         variant={row.original.is_available ? "default" : "destructive"}
         className={
           row.original.is_available
-            ? "bg-green-100 text-green-800 border-green-200"
-            : "bg-red-100 text-red-800 border-red-200"
+            ? "bg-success/10 text-success border-success/20"
+            : "bg-destructive/10 text-destructive border-destructive/20"
         }
       >
         {row.original.is_available ? "Còn hàng" : "Hết hàng"}
@@ -117,7 +117,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Đã bán</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -126,7 +126,7 @@ export const getColumns = ({
     },
     enableHiding: true,
     cell: ({ row }) => (
-      <span className="whitespace-nowrap font-medium text-gray-900">
+      <span className="whitespace-nowrap font-medium text-foreground">
         {row.original.sold_count ?? 0}
       </span>
     ),
@@ -138,7 +138,7 @@ export const getColumns = ({
       return (
         <button
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="flex items-center hover:text-blue-400 cursor-pointer w-fit"
+          className="flex items-center hover:text-link-hover cursor-pointer w-fit"
         >
           <span>Ngày thêm</span>
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -151,7 +151,7 @@ export const getColumns = ({
         : null;
       return (
         <div className="flex flex-col">
-          <span className="text-gray-500 text-sm">
+          <span className="text-muted-foreground text-sm">
             {date
               ? date.toLocaleTimeString("vi-VN", {
                   hour: "2-digit",
@@ -160,7 +160,7 @@ export const getColumns = ({
                 })
               : ""}
           </span>
-          <span className="text-gray-700">
+          <span className="text-foreground">
             {date
               ? date.toLocaleDateString("vi-VN", {
                   day: "2-digit",
